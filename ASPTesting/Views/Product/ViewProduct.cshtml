@@ -3,7 +3,7 @@
 
 
 <h3>@Model.Name Information</h3>
-
+<!--Here, we display the database as a readable table on the webpage:-->
 <table class="table">
     <tr>
         <th>Product ID</th>
@@ -11,7 +11,7 @@
         <th>Price</th>
         <th>Category ID</th>
         <th>On Sale</th>
-        <th>StockLevel</th>
+        <th>Stock Level</th>
     </tr>
 
     <tr>
@@ -24,3 +24,8 @@
     </tr>
 
 </table>
+
+<!--Here, we allow the user to update products from the webpage via text prompt-->
+<div style="display: block">
+    <a href="/Product/UpdateProduct/@Model.ProductID">Update this Product</a>
+</div>

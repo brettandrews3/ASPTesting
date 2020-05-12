@@ -29,5 +29,13 @@ namespace ASPTesting
             return (Product)_conn.QuerySingle<Product>("SELECT * FROM Products WHERE ProductID = @id;",
                 new { id });
         }
+
+        //Update a product from bestbuy by calling its Product ID
+        public void UpdateProduct(Product product)
+        {
+            //Pass the update through secured connection _conn to update database
+            _conn.Execute("UPDATE Products SET Name = @name, Price = @price, WHERE ProductID = @id;",
+                new { name = product.Name, price = product.Price, id = product.ProductID });
+        }
     }
 }
