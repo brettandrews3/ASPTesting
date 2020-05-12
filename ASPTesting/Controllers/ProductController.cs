@@ -27,5 +27,13 @@ namespace ASPTesting.Controllers
 
             return View(products);
         }
+
+        //Enable user to View a product by entering its Product ID
+        public IActionResult ViewProduct(int id)
+        {
+            var product = repo.GetProduct(id);
+
+            return View(product);
+        }
     }
 }
