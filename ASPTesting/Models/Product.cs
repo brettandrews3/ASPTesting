@@ -3,7 +3,7 @@ namespace ASPTesting.Models
 {
     public class Product
     {
-        public Product()
+        public Product() //Define a new variable type: Product
         {
         }
         //Adding properties that correspond w/ column names in bestbuy database:
