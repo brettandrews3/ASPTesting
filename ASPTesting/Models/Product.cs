@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace ASPTesting.Models
 {
     public class Product
@@ -13,5 +15,7 @@ namespace ASPTesting.Models
         public int CategoryID { get; set; }
         public int OnSale { get; set; }
         public int StockLevel { get; set; }
+        //Allow for Categories to be set now:
+        public IEnumerable<Category> Categories { get; set; }
     }
 }

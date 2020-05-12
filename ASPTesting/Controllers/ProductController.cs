@@ -59,5 +59,21 @@ namespace ASPTesting.Controllers
 
             return RedirectToAction("ViewProduct", new { id = product.ProductID });
         }
+
+        //(1)Create product by using the webpage
+        public IActionResult InsertProduct()
+        {
+            var prod = repo.AssignCategory();
+
+            return View(prod);
+        }
+
+        //(2)Insert new product from webpage into bestbuy database
+        public IActionResult InsertProductToDatabase(Product productToInsert)
+        {
+            repo.InsertProduct(productToInsert);
+
+            return RedirectToAction("Index");
+        }
     }
 }

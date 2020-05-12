@@ -37,6 +37,7 @@ namespace ASPTesting
             _conn.Execute("UPDATE Products SET Name = @name, Price = @price, WHERE ProductID = @id;",
                 new { name = product.Name, price = product.Price, id = product.ProductID });
         }
+
         //Insert(), Get(), Assign() all work to CREATE a new product in bestbuy
         //Create a product in bestbuy by adding it on the webpage
         public void InsertProduct(Product productToInsert)
