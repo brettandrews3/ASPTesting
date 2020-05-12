@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Testing.Models;
+using ASPTesting.Models;
 namespace ASPTesting
 {
     public interface IProductRepository

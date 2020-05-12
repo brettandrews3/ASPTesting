@@ -1,5 +1,25 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!--This model line represents the data model that passes to View later -->
+@model IEnumerable<Product>
+
+<h2>Products</h2>
+<table class="table"
+       <tr>
+           <th>ID</th>
+           <th>Name</th>
+           <th>Price</th>
+           <th>Category ID</th>
+           <th>On Sale</th>
+           <th>Stock Level</th>
+       </tr>
+    <!--For each Product contained in Model, display the product info on the View page -->
+    @foreach(var product in Model)
+    {
+        <tr>@product.ProductID</tr>
+        <tr>@product.Name</tr>
+        <tr>@product.Price</tr>
+        <tr>@product.CategoryID</tr>
+        <tr>@product.OnSale</tr>
+        <tr>@product.StockLevel</tr>
+
+    }
+       </table>
