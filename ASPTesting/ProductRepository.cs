@@ -22,5 +22,12 @@ namespace ASPTesting
         {
             return _conn.Query<Product>("SELECT * FROM Products;");
         }
+
+        //Pull a single product by calling its Product ID
+        public Product GetProduct(int id)
+        {
+            return (Product)_conn.QuerySingle<Product>("SELECT * FROM Products WHERE ProductID = @id;",
+                new { id });
+        }
     }
 }

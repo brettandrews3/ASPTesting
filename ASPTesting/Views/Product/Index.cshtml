@@ -12,14 +12,15 @@
            <th>Stock Level</th>
        </tr>
     <!--For each Product contained in Model, display the product info on the View page -->
-    @foreach(var product in Model)
+    @foreach (var product in Model)
     {
-        <tr>@product.ProductID</tr>
-        <tr>@product.Name</tr>
-        <tr>@product.Price</tr>
-        <tr>@product.CategoryID</tr>
-        <tr>@product.OnSale</tr>
-        <tr>@product.StockLevel</tr>
-
+     <tr>
+         <td><a href=/Product/ViewProduct/@product.ProductID>@product.ProductID</a></td>
+         <td>@product.Name</td>
+         <td>@product.Price</td>
+         <td>@product.CategoryID</td>
+         <td>@product.OnSale</td>
+         <td>@product.StockLevel</td>
+     </tr>
     }
-       </table>
+</table>

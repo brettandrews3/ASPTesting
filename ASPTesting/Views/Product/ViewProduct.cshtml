@@ -1,5 +1,6 @@
-﻿<!-- This View file shares name with ViewProduct() in the Product Controller-->
-@model Product
+﻿@model Product
+<!-- This View file shares name with ViewProduct() in the Product Controller-->
+
 
 <h3>@Model.Name Information</h3>
 
@@ -14,7 +15,7 @@
     </tr>
 
     <tr>
-        <td>@.Model.ProductID</td>
+        <td>@Model.ProductID</td>
         <td>@Model.Name</td>
         <td>@Model.Price</td>
         <td>@Model.CategoryID</td>
