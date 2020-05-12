@@ -37,5 +37,28 @@ namespace ASPTesting
             _conn.Execute("UPDATE Products SET Name = @name, Price = @price, WHERE ProductID = @id;",
                 new { name = product.Name, price = product.Price, id = product.ProductID });
         }
+        //Insert(), Get(), Assign() all work to CREATE a new product in bestbuy
+        //Create a product in bestbuy by adding it on the webpage
+        public void InsertProduct(Product productToInsert)
+        {
+            _conn.Execute("INSERT INTO Products (NAME, PRICE, CATEGORYID) VALUES (@name, @price, @categoryID);",
+                new { name = productToInsert.Name, price = productToInsert.Price, categoryID = productToInsert.CategoryID });
+        }
+
+        //Implement the GetCategories() from IProductRepository
+        public IEnumerable<Category> GetCategories()
+        {
+            return _conn.Query<Category>("SELECT * FROM categories;");
+        }
+
+        //Implement the AssignCategory() from IProductRepository
+        public Product AssignCategory()
+        {
+            var categoryList = GetCategories();
+            var product = new Product();
+            product.Categories = categoryList;
+
+            return product;
+        }
     }
 }
