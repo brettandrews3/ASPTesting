@@ -16,7 +16,7 @@
             @foreach (var cat in Model.Categories)
                 @if(cat.CategoryID == Model.CategoryID)
                     {
-                        <option-value="@cat.CategoryID" selected>@cat.CategoryID @cat.Name</option-value>
+                        <option value="@cat.CategoryID" selected>@cat.CategoryID @cat.Name</option>
                     }
                 else
                 {

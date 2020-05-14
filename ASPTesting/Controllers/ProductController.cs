@@ -43,6 +43,7 @@ namespace ASPTesting.Controllers
             Product prod = repo.GetProduct(id);
 
             repo.UpdateProduct(prod);
+            prod.Categories = repo.GetCategories();
 
             //If a product is there, View it. If no product, then ERROR msg
             if(prod == null)
