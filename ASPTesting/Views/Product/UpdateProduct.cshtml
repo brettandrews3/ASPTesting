@@ -2,7 +2,7 @@
 <!--Here, we add our UpdateProduct() to the website for user functionality-->
 <h2>Update @Model.Name</h2>
 
-@using(Html.BeginForm("UpdateProductToDatabase", "Product", "Post"))
+@using (Html.BeginForm("UpdateProductToDatabase", "Product", "Post"))
 {
     <!--Create buttons, their labels, and input type for Name, Price; Product ID is hidden-->
     <input asp-for="ProductID" type="hidden" value="@Model.ProductID" />
@@ -10,5 +10,19 @@
     <input type="text" name="Name" class="form-control" value="@Model.Name" />
     <label asp-for="Price" class="control-label">Price</label>
     <input type="number" step="0.01" name="Price" class="form-control" value="@Model.Price" />
+    <div class="form-group">
+        <label for="">Select a Category</label>
+        <select class="form-control" name="CategoryID" value="">
+            @foreach (var cat in Model.Categories)
+                @if(cat.CategoryID == Model.CategoryID)
+                    {
+                        <option-value="@cat.CategoryID" selected>@cat.CategoryID @cat.Name</option-value>
+                    }
+                else
+                {
+                <option value="@cat.CategoryID">@cat.CategoryID @cat.Name</option>
+            }
+        </select>
+    </div>
     <input type="submit" value="Update Product" class="btn btn-primary" />
 }

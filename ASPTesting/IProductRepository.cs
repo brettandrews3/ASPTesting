@@ -12,5 +12,7 @@ namespace ASPTesting
         public void InsertProduct(Product productToInsert); //Insert new product in bestbuy database
         public IEnumerable<Category> GetCategories(); //Get the categories used in bestbuy
         public Product AssignCategory(); //Assign category to new product
+
+        public void DeleteProduct(Product product); //Delete product from bestbuy
     }
 }

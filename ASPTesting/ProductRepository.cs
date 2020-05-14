@@ -34,8 +34,8 @@ namespace ASPTesting
         public void UpdateProduct(Product product)
         {
             //Pass the update through secured connection _conn to update database
-            _conn.Execute("UPDATE Products SET Name = @name, Price = @price, WHERE ProductID = @id;",
-                new { name = product.Name, price = product.Price, id = product.ProductID });
+            _conn.Execute("UPDATE Products SET Name = @name, Price = @price, CategoryID = @categoryID WHERE ProductID = @id;",
+                new { name = product.Name, price = product.Price, categoryID = product.CategoryID, id = product.ProductID });
         }
 
         //Insert(), Get(), Assign() all work to CREATE a new product in bestbuy
@@ -60,6 +60,17 @@ namespace ASPTesting
             product.Categories = categoryList;
 
             return product;
+        }
+
+        //Implement the DeleteProduct() from the 3 places it appears in database
+        public void DeleteProduct(Product product)
+        {
+            _conn.Execute("DELETE FROM Reviews WHERE ProductID = @id;",
+                new { id = product.ProductID });
+            _conn.Execute("DELETE FROM Sales WHERE ProductID = @id;",
+                new { id = product.ProductID });
+            _conn.Execute("DELETE FROM Products WHERE ProductID = @id;",
+                new { id = product.ProductID });
         }
     }
 }

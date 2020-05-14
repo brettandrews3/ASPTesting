@@ -75,5 +75,13 @@ namespace ASPTesting.Controllers
 
             return RedirectToAction("Index");
         }
+
+        //Delete product from webpage and bestbuy database
+        public IActionResult DeleteProduct(Product product)
+        {
+            repo.DeleteProduct(product);
+
+            return RedirectToAction("Index");
+        }
     }
 }
